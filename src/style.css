@@ -36,6 +36,7 @@ body {
     margin-right: auto;
     position: relative;
     cursor: pointer;
+    background-color: #000000;
 }
 
 .video-player-inner {
