@@ -1,0 +1,103 @@
+body {
+    background: darkgray;
+}
+
+.video-player-spinner {
+    animation: rotate 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+    z-index: 300;
+    transform-origin: 50% 50%;
+}
+
+.video-player-spinner .path {
+    stroke: #FFFFFF;
+    stroke-linecap: round;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.video-player {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.video-player-inner {
+    padding-bottom: 46.625%;
+}
+
+.video-player-play-icon {
+    fill: #FFFFFF;
+    max-width: 100px;
+    min-width: 40px;
+    width: 20%;
+    position: absolute;
+    z-index: 300;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: fill .1s, opacity .5s, transform .5s;
+    opacity: 0;
+}
+
+.video-player-overlay {
+    background-image: url('overlay.jpg');
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+}
+
+.video-player-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+
+.video-player.is-ready .video-player-play-icon {
+    opacity: 1;
+}
+
+.video-player.is-ready:hover .video-player-play-icon {
+    transition: fill .1s, opacity .3s, filter .3s;
+    opacity: .8;
+    fill: #f9F9f9;
+    filter: drop-shadow( 0px 0px 32px rgba(0, 0, 0, .25));
+}
+
+.video-player.is-ready .video-player-spinner {
+    display: none;
+}
+
+
+.video-player.is-playing .video-player-play-icon {
+    display: none;
+}
+
+.video-player.is-playing .video-player-overlay {
+    display: none;
+}
+
